@@ -103,32 +103,31 @@
 
     <div id="result"></div>
   </div>
+ <script>
+  document.getElementById("healthForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let score = 0;
 
-  <script>
-    document.getElementById("healthForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      let score = 0;
-
-      for (let i = 1; i <= 8; i++) {
-        const val = document.querySelector(input[name="q${i}"]:checked);
-        if (val) {
-          if ((i === 5 || i === 6) && val.value === "no") {
-            score++;
-          } else if (i !== 5 && i !== 6 && val.value === "yes") {
-            score++;
-          }
+    for (let i = 1; i <= 8; i++) {
+      const val = document.querySelector(input[name="q${i}"]:checked);
+      if (val) {
+        if ((i === 5 || i === 6) && val.value === "no") {
+          score++;
+        } else if (i !== 5 && i !== 6 && val.value === "yes") {
+          score++;
         }
       }
+    }
 
-      const result = document.getElementById("result");
-      if (score >= 6) {
-        result.innerHTML = "✅ Your health is good. Keep it up!";
-        result.style.color = "green";
-      } else {
-        result.innerHTML = "⚠️ Your health is at risk. Please take precautions!";
-        result.style.color = "red";
-      }
-    });
-  </script>
-</body>
-</html>
+    const result = document.getElementById("result");
+    if (score >= 6) {
+      result.innerHTML = "✅ Your health is good. Keep it up!";
+      result.style.color = "green";
+      alert("✅ Your health is good. Keep it up!");
+    } else {
+      result.innerHTML = "⚠️ Your health is at risk. Please take precautions!";
+      result.style.color = "red";
+      alert("⚠️ Your health is at risk. Please take precautions!");
+    }
+  });
+</script>
